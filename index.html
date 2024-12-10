@@ -51,7 +51,7 @@
                     </tr>
                 </thead>
                 <tbody data-bind="foreach: matches">
-                    <tr class="table-primary">
+                    <tr data-bind="class: $index() % 2 == 0 ? 'table-primary' : ''">
                         <td> <!--ko text: DRB1--><!--/ko--></td>
                         <td> <!--ko text: $data["DRB3/4/5"]--><!--/ko--></td>
                         <td> <!--ko text: DQB1--><!--/ko--></td>
