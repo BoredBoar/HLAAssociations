@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/spacelab/bootstrap.min.css" integrity="sha512-NWw8XgTx2tYA5oEZwBrmyH8bg37mh4bIjeV4OLWwqI3ipQ0ITyiWTFdG295uz2lMy+QO9DszNZwta4m4mJpnmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js" integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/sandstone/bootstrap.min.css" integrity="sha512-0/qBfS6zg4ZK/qvnGwbCpVGDFnfcVnTWhmHgiQNDCcgRLrCBfG4LWAYir/jw/jANoGjEsvQ9ajc9V0j7hxFxag==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js" integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <title>HLA</title>
 </head>
@@ -15,8 +14,19 @@
           <a class="navbar-brand" href="#">HLA</a>
         </div>
     </nav>
+
+    <div class="container" style="padding-top: 50px;">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="" data-bind="click: changeView.bind($data,'B345'), class: view() == 'B345' ? 'active' : ''">DRB345</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" data-bind="click: changeView.bind($data,'BtoC'), class: view() == 'BtoC' ? 'active' : ''">B->C</a>
+            </li>
+        </ul>
+    </div>
  
-    <div class="container">
+    <div class="container" data-bind="visible: view() == 'B345'">
         <div class="row align-items-start">
             <div class="col">
                 <div>
