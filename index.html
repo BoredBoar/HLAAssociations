@@ -15,6 +15,7 @@
         </div>
     </nav>
 
+    <!-- Tab Controls -->
     <div class="container" style="padding-top: 50px;">
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -26,6 +27,7 @@
         </ul>
     </div>
  
+    <!-- DRB345 Table -->
     <div class="container" data-bind="visible: view() == 'B345'">
         <div class="row align-items-start">
             <div class="col">
@@ -37,7 +39,7 @@
             <div class="col">
                 <div>
                     <label class="col-form-label mt-4">DRB3/4/5*</label>
-                    <input type="text" class="form-control" placeholder="Enter Allele, i.e. DRB3*01" data-bind="value: DRB345" />
+                    <input type="text" class="form-control" placeholder="Enter Allele, i.e. 3*01" data-bind="value: DRB345" />
                 </div>
             </div>
             <div class="col">
@@ -66,6 +68,50 @@
                         <td> <!--ko text: $data["DRB3/4/5"]--><!--/ko--></td>
                         <td> <!--ko text: DQB1--><!--/ko--></td>
                         <td> <!--ko text: $data["FREQUENCY OVERALL"]--><!--/ko--></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+        
+
+    </div>
+
+    <!-- B to C table -->
+    <div class="container" data-bind="visible: view() == 'BtoC'">
+        <div class="row align-items-start">
+            <div class="col">
+                <div>
+                    <label class="col-form-label mt-4">HLA-B</label>
+                    <input type="text" class="form-control" placeholder="Enter Allele, i.e. 702" data-bind="value: HLAB" />
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <label class="col-form-label mt-4">HLA-C</label>
+                    <input type="text" class="form-control" placeholder="Enter Allele, i.e. 202" data-bind="value: HLAC" />
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row align-items-start">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">HLA-B</th>
+                      <th scope="col">HLA-C</th>
+                      <th scope="col">Frequency</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: BCmatches">
+                    <tr data-bind="class: $index() % 2 == 0 ? 'table-primary' : ''">
+                        <td> <!--ko text: B--><!--/ko--></td>
+                        <td> <!--ko text: C--><!--/ko--></td>
+                        <td> <!--ko text: Frequency--><!--/ko--></td>
                     </tr>
 
                 </tbody>

@@ -10,16 +10,27 @@ function AppViewModel() {
     self.DRB1 = ko.observable("")
     self.DRB345 = ko.observable("")
     self.DQB1 = ko.observable("")
+    self.HLAB = ko.observable("")
+    self.HLAC = ko.observable("")
     self.matches = ko.computed(function() {
         return self.B345data
         .filter( (allele) => {
             return allele.DRB1.startsWith('DRB1*' + self.DRB1())
         })
         .filter( (allele) => {
-            return allele["DRB3/4/5"] == 'x' || allele["DRB3/4/5"].startsWith(self.DRB345())
+            return allele["DRB3/4/5"] == 'x' || allele["DRB3/4/5"].startsWith('DRB' + self.DRB345())
         })
         .filter((allele) => {
             return allele.DQB1.startsWith('DQB1*' + self.DQB1())
+        })
+    })
+    self.BCmatches = ko.computed(function() {
+        return self.BtoCdata
+        .filter((allele) => {
+            return allele.B.startsWith(self.HLAB()) || allele.B.startsWith('0' + self.HLAB())
+        })
+        .filter((allele) => {
+            return allele.C.startsWith(self.HLAC()) || allele.C.startsWith('0' + self.HLAC())
         })
     })
 
