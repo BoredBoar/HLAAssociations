@@ -1,4 +1,4 @@
-DRB1	DQA1	DQB1	Freq. Overall
+DRB1	DQA1	DQB1	Frequency
 0101	0101	0501	very common
 0101	0102	0504	rare
 0102	0101	0501	very common
