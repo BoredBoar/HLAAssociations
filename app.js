@@ -38,6 +38,18 @@ function AppViewModel() {
             return allele.C.startsWith(self.HLAC()) || allele.C.startsWith('0' + self.HLAC())
         })
     })
+    self.DRDQmatches = ko.computed(function() {
+        return self.DRDQdata
+        .filter( (allele) => {
+            return allele.DRB1.startsWith(self.DRB1_a())
+        })
+        .filter( (allele) => {
+            return allele.DQA1.startsWith(self.DQA1_a())
+        })
+        .filter((allele) => {
+            return allele.DQB1.startsWith(self.DQB1_a())
+        })
+    })
 
 }
 
