@@ -27,6 +27,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="" data-bind="click: changeView.bind($data,'DRDQ'), class: view() == 'DRDQ' ? 'active' : ''">DR->DQ</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" data-bind="click: changeView.bind($data,'Pgroup'), class: view() == 'Pgroup' ? 'active' : ''">PGroups</a>
+            </li>
         </ul>
     </div>
  
@@ -167,6 +170,40 @@
                         <td> <!--ko text: DQA1--><!--/ko--></td>
                         <td> <!--ko text: DQB1--><!--/ko--></td>
                         <td> <!--ko text: Frequency--><!--/ko--></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+        
+
+    </div>
+
+
+    <!-- PGroup table -->
+    <div class="container" data-bind="visible: view() == 'Pgroup'">
+        <div class="row align-items-start">
+            <div class="col">
+                <div>
+                    <label class="col-form-label mt-4">Allele</label>
+                    <input type="text" class="form-control" placeholder="Enter Allele, i.e. A*01:01 or A*01:01:01:06" data-bind="value: Pgroup" />
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-start">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Pgrooup</th>
+                        <th scope="col">Alleles</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: PgroupMatches">
+                    <tr data-bind="class: $index() % 2 == 0 ? 'table-primary' : ''">
+                        <td> <!--ko text: Pgroup--><!--/ko--></td>
+                        <td> <!--ko text: alleles--><!--/ko--></td>
                     </tr>
 
                 </tbody>
